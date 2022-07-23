@@ -16,7 +16,7 @@ jobs:
       uses: repo-sync/github-sync@v2.3.0
 
       with:
-        source_repo: "source_repo"
+        source_repo: "https://gitea.com/Pandora2277/TV.git"
         source_branch: "main"
         destination_branch: "master"
         github_token: ${{ secrets.GITHUB_TOKEN }}
