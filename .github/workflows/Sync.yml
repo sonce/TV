@@ -1,0 +1,22 @@
+name: Sync Repo
+
+on:
+  schedule:
+  - cron:  "55 * * * *"
+  workflow_dispatch:
+
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.4.2
+      with:
+        persist-credentials: false
+    - name: repo-sync
+      uses: repo-sync/github-sync@v2.3.0
+
+      with:
+        source_repo: "source_repo"
+        source_branch: "main"
+        destination_branch: "master"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
